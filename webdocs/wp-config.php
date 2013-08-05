@@ -19,15 +19,13 @@
 if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
 	include( dirname( __FILE__ ) . '/local-config.php' );
 	define( 'WP_LOCAL', true );
- } else if ( file_exists( dirname( __FILE__ ) . '/dev-config.php' ) ) {
+} else if ( file_exists( dirname( __FILE__ ) . '/dev-config.php' ) ) {
 	include( dirname( __FILE__ ) . '/dev-config.php' );
 	define( 'WP_DEV', true );
-} else {
-	define( 'DB_NAME',     'pecanlodge_live_wp');
-	define( 'DB_USER',     'pecanlodge');
-	define( 'DB_PASSWORD', '0H2C3LCPEw!Z[7q');
+} else if ( file_exists( dirname( __FILE__ ) . '/prod-config.php' ) ) {
+	include( dirname( __FILE__ ) . '/prod-config.php' );
+	define( 'WP_PROD', true );
 }
-define( 'DB_HOST',     'localhost'  );
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
@@ -44,15 +42,9 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'G8.m_?Bm@mz-?V(AVNG+|Wa74$:+F~oeOb(gnoTJq(z*-zkJFg2+bPi,z.;b;-<Z');
-define('SECURE_AUTH_KEY',  '?n=*%0xU94[oIC|fp.R f8ej=DntI8U]/}=;>{(+Cud6Tg0|3T@`LS?dxwJWxBl2');
-define('LOGGED_IN_KEY',    'ht7|p;FnPD@-(Z1I?~}X}-$bgPvP%y}Eo-F=|UHt#X+ClT:QbHpDU-.:UZ.qp2.@');
-define('NONCE_KEY',        ' uQWj`JHPWykT]^YVCnV7(qmYJ4}B{:Cf}#2W:<0td6v-Uf=WJ|Z-A1!2gr_0NsX');
-define('AUTH_SALT',        '%E{-=v,o(y)C#l0Pf.PDujK|t^$ckC,@N}FTSZ(5EEVfWLwhAmDQ&C +NgMFp~W]');
-define('SECURE_AUTH_SALT', '`K~j~c@!NV(~)L!^,c72k!qzI(x*xTDQiu7;td&,_eVsAZyX9![HFG=~%*bJ|E*,');
-define('LOGGED_IN_SALT',   ';(N)|Qfw&v9fJ>Jp#J]N )7;#:Eg$iN35gnxdXZe?+T!ZqP@(]+gcS3moQ>|=P/T');
-define('NONCE_SALT',       'qi.UF~K+-`uc`Xw Kimwz!Wcpwemsp@*6]=N@t+4K+.ahHT04I6s>+H{!*L261^j');
-
+if ( file_exists( dirname( __FILE__ ) . '/auth-keys.php' ) ) {
+	include( dirname( __FILE__ ) . '/auth-keys.php' );
+}
 /**#@-*/
 
 /**

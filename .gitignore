@@ -1,3 +1,5 @@
 local-config.php
-node_modules
+dev-config.php
+prod-config.php
+auth-keys.php
 .DS_Store

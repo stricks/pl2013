@@ -1,0 +1,279 @@
+/* apply a natural box layout model to all elements */
+/* needs polyfill for ie7 */
+* { 
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box;
+}
+
+/* **********************************************************************
+   PCOMM GRID
+********************************************************************** */
+.content-area {
+	margin: 0 auto 1em;
+	width: 100%;
+}
+.site-main { 
+	width: 95.625%; /* 95.625%; /*12 columns: 306px	/ 320px = 0.95625 */
+	margin: 0 auto;
+}
+
+[class*='col-'] {
+	display:block;
+	float: left;
+	margin: 1% 0;
+	padding: 0;
+	width: 100%;
+}
+
+@media only screen and (min-width: 480px) {
+
+	.site-main { 
+		width: 95.833333333333%; /*12 columns: 460px / 480px = 0.95833333333333*/
+	}
+
+
+}
+@media only screen and (min-width: 600px) {
+	
+	.site-main {
+		width: 96.666666666667%; /*12 columns: 580px	/ 600px = 0.96666666666667*/
+	}
+	[class*='col-'] {
+		padding: 0 8px 0 0;
+	}
+	.col-1 {
+		width: 8.333333333333%;
+	}
+	.col-2 {
+		width: 16.666666666667%; 
+	}
+	.col-3 {
+		width: 25%; 
+	}
+	.col-4 {
+		width: 33.333333333333%; 
+	}
+	.col-5 {
+		width: 41.666666666667%;
+	}
+	.col-6 {
+		width: 50%;
+	}
+	.col-7 {
+		width: 58.333333333333%; 
+	}
+	.col-8 {
+		width: 66.666666666667%;
+	}
+	.col-9 {
+		width: 75%; 
+	}
+	.col-10 {
+		width: 83.333333333333%;
+	}
+	.col-11 {
+		width: 91.666666666667%;
+	}
+	.col-12 {
+		padding: 0;
+		width: 100%;
+	}
+
+}
+@media only screen and (min-width: 768px) {
+
+	.site-main {
+		width: 96.875%; /*12 columns: 744px	/ 768px = 0.96875*/
+	}
+	[class*='col-'] {
+		padding: 0 12px 0 0;
+	}
+	.col-1 {
+		width: 8.333333333333%;
+	}
+	.col-2 {
+		width: 16.666666666667%; /* 124 */
+	}
+	.col-3 {
+		width: 25%; /* 186 */
+	}
+	.col-4 {
+		width: 33.333333333333%; /* 248 */
+	}
+	.col-5 {
+		width: 41.666666666667%; /* 310 */
+	}
+	.col-6 {
+		width: 50%; /* 372 */
+	}
+	.col-7 {
+		width: 58.333333333333%; /* 434 */
+	}
+	.col-8 {
+		width: 66.666666666667%; /* 496 */
+	}
+	.col-9 {
+		width: 75%; /* 558 */
+	}
+	.col-10 {
+		width: 83.333333333333%; /* 620 */
+	}
+	.col-11 {
+		width: 91.666666666667%; /* 682 */
+	}
+	.col-12 {
+		padding: 0;
+		width: 100%;
+	}
+
+}
+@media only screen and (min-width: 992px) {
+
+	.content-area {
+		margin: 0 auto;
+		max-width: 992px;
+	}
+	.site-main {
+		width: 96.774193548387%; /* 96.774193548387%; /*960px	/ 992px = 0.96774193548387*/
+	}
+	.col-1 {
+		width: 8.3333%;
+	}
+	.col-2 {
+		width: 16.666666666667%;
+	}
+	.col-3 {
+		width: 25%;
+	}
+	.col-4 {
+		width: 33.333333333333%;
+	}
+	.col-5 {
+		width: 41.666666666667%;
+	}
+	.col-6 {
+		width: 50%;
+	}
+	.col-7 {
+		width: 58.333333333333%;
+	}
+	.col-8 {
+		width: 66.666666666667%;
+	}
+	.col-9 {
+		width: 75%;
+	}
+	.col-10 {
+		width: 83.333333333333%;
+	}
+	.col-11 {
+		width: 91.666666666667%;
+	}
+	.col-12 {
+		padding: 0;
+		width: 100%;
+	}
+}
+
+/* clearfix */
+.grid:before,
+.grid:after {
+    content: "";
+    display: table;
+} 
+.grid:after {
+    clear: both;
+}
+.grid {
+    zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+/* responsive images */
+[class*='col-'] img {
+	max-width: 100%;
+}
+
+
+
+/* **********************************************************************
+   OLD IE GETS 992 STYLES BY DEFAULT
+	There are a couple of reasons why
+	One, we really (IMO) don't need to support responsive in old ie
+	Two, respond.js doesn't support @import, which we might be able to work around
+	but it sure is useful for child themes.
+********************************************************************** */
+.oldie .content-area {
+	margin: 0 auto;
+	width: 992px;
+}
+.oldie [class*='col-'] {
+	padding: 0 12px 0 0;
+}
+.oldie .col-1 {
+	width: 8.3333%;
+}
+.oldie .col-2 {
+	width: 16.666666666667%;
+}
+.oldie .col-3 {
+	width: 25%;
+}
+.oldie .col-4 {
+	width: 33.333333333333%;
+}
+.oldie .col-5 {
+	width: 41.666666666667%;
+}
+.oldie .col-6 {
+	width: 50%;
+}
+.oldie .col-7 {
+	width: 58.333333333333%;
+}
+.oldie .col-8 {
+	width: 66.666666666667%;
+}
+.oldie .col-9 {
+	width: 75%;
+}
+.oldie .col-10 {
+	width: 83.333333333333%;
+}
+.oldie .col-11 {
+	width: 91.666666666667%;
+}
+.oldie .col-12 {
+	padding: 0;
+	width: 100%;
+}
+
+.oldie .grid:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.oldie .col:first-of-type {
+	margin-left: 0;
+}
+
+/* optional padding all the way around the grid */
+.grid-pad {
+	padding: 15px 0 15px 15px;
+}
+.grid-pad > .last {
+	padding-right: 15px;
+}
+
+/* optional padding on left and right of a column */
+.col-pad {
+	padding: 0 15px;
+}
+/* zero out left padding on first element */
+.col-first {
+	padding-left: 0;
+}
+/* zero out right padding on last element */
+.col-last {
+	padding-right: 0;
+}
